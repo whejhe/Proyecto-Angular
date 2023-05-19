@@ -1,0 +1,12 @@
+Instalar:
+-Node.js
+-Npm
+	version: npm --version
+-Angular CLI
+	npm install -g @angular/cli
+	ng new Proyecto-Angular
+-Git
+
+Para lanzar la aplicacion:
+	ng serve --open
+	detener: ctrl + c
