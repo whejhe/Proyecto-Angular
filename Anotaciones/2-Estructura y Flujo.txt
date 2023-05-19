@@ -1,0 +1,9 @@
+@Component({
+  selector: 'un-nombre-cualquiera', // <un-nombre-cualquiera></un-nombre-cualquiera> nombre de la etiqueta
+  templateUrl: './app.component.html',  // direccion del archivo html
+  styleUrls: ['./app.component.css']    // direccion del archivo css
+})
+export class AppComponent {
+  title = 'Proyecto-Angular'; //Propiedad para html {{title}}
+}
+
