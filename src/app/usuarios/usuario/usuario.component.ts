@@ -7,13 +7,21 @@ import { Component } from '@angular/core';
 })
 export class UsuarioComponent {
 
-  nombre='Carlos';
-  apellido='Fernandez';
+  private nombre='Carlos';
+  private apellido='Fernandez';
   private edad=30;
-  email='carlos@gmail';
+  private email='carlos@gmail';
 
+  getNombre(){
+    return this.nombre;
+  }
+  getApellido(){
+    return this.apellido;
+  }
   getEdad(){
     return this.edad;
   }
-
+  getEmail(){
+    return this.email;
+  }
 }
