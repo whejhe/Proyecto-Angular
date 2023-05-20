@@ -1,0 +1,2 @@
+ng generate component nombreComponente
+ng g c nombreComponente

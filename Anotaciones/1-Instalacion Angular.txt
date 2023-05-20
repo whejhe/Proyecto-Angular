@@ -9,5 +9,5 @@ Instalar:
 
 
 Para lanzar la aplicacion:
-	ng serve --open
+	ng serve --open / ng serve -o
 	detener: ctrl + c
