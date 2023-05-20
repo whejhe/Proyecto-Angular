@@ -13,7 +13,7 @@ ng serve --open
 o  
 ng serve -o
 	
-detener servidor: ctrl + c
+Detener servidor: ctrl + c
 
 Generar componentes:
 ng generate component nombreComponente

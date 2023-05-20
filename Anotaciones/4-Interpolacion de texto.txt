@@ -1,0 +1,5 @@
+app.component.ts
+variableNombre='Carlos'
+
+app.component.html
+<h2>Wellcome: {{variableNombre}}</h2>
