@@ -1,0 +1,24 @@
+Instalar:
+-Node.js
+-Npm
+	version: npm --version
+-Angular CLI
+	npm install -g @angular/cli
+	ng new Proyecto-Angular
+-Git
+
+
+Para lanzar la aplicacion:
+ng serve --open
+o  
+ng serve -o
+	
+detener servidor: ctrl + c
+
+Generar componentes:
+ng generate component nombreComponente
+o
+ng g c nombreComponente
+
+Generar componente con estilos en linea:
+ng g c nombreComponente -s -t
