@@ -1,0 +1,117 @@
+Instalamos librerias:
+npm i bootstrap jquery popper.js --save
+
+angular.json:
+
+"styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+----------------------------------------------------------------------
+app.modules.ts:
+imports: [
+    BrowserModule,
+    FormsModule
+  ],
+
+-----------------------------------------------------------------------
+empleado.module.ts:
+
+export class Empleado{
+
+    constructor(nombre:string, apellido:string, cargo:string, salario:number){
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.cargo=cargo;
+        this.salario=salario;
+    }
+
+    nombre:string="";
+    apellido:string="";
+    cargo:string="";
+    salario:number=0;
+}
+--------------------------------------------------------------------------------
+app.component.ts:
+
+import { Component } from '@angular/core';
+import { Empleado } from './empleado.module';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'Practica Empleado';
+  titulo = 'Listado de Empleados';
+
+  empleados: Empleado[] = [
+    new Empleado('Juan', 'Perez', 'Desarrollador', 1200),
+    new Empleado('Ana', 'Perez', 'Presidente', 7500),
+    new Empleado('Laura', 'Perez', 'Directiva', 5500),
+    new Empleado('Maria', 'Perez', 'Administrativo', 1500)
+  ];
+
+  agregarEmpleado(){
+    let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+    this.empleados.push(miEmpleado);
+  }
+
+  cuadroNombre:string="";
+  cuadroApellido:string="";
+  cuadroCargo:string="";
+  cuadroSalario:number=0;
+
+  
+}
+
+-------------------------------------------------------------------------------------
+app.component.html:
+
+<h1>{{title}}</h1>
+<div class="container">
+    <div class="col">
+        <h1>{{titulo}}</h1>
+    </div>
+    <br/>
+    <form class="form-group row">
+        <div class="form-group col-md-3">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombre">
+        </div>    
+        <div class="form-group col-md-3">
+            <label for="Apellido">Apellido:</label>
+            <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" class="form-control" [(ngModel)]="cuadroApellido">
+        </div>    
+        <div class="form-group col-md-3">
+            <label for="Cargo">Cargo:</label>
+            <input type="text" name="Cargo" id="Cargo" placeholder="Cargo" class="form-control" [(ngModel)]="cuadroCargo">
+        </div>    
+        <div class="form-group col-md-3">
+            <label for="Salario">Salario:</label>
+            <input type="text" name="Salario" id="Salario" placeholder="Salario" class="form-control" [(ngModel)]="cuadroSalario">
+        </div>  
+        <div class="col">
+            <button type="submit" class="btn btn-primary" (click)="agregarEmpleado()" style="margin-top: 10px">Agregar</button>
+        </div>  
+    </form>
+</div>
+<br><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div *ngFor="let empleado of empleados; let i=index">
+                {{i+1}}: {{empleado.nombre}} {{empleado.apellido}} {{empleado.cargo}} {{empleado.salario}}
+            </div>
+        </div>
+    </div>
+</div>
+------------------------------------------------------------------------------------------
+

@@ -1,11 +1,39 @@
 <h1>{{title}}</h1>
+<div class="container">
+    <div class="col">
+        <h1>{{titulo}}</h1>
+    </div>
+    <br/>
+    <form class="form-group row">
+        <div class="form-group col-md-3">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombre">
+        </div>    
+        <div class="form-group col-md-3">
+            <label for="Apellido">Apellido:</label>
+            <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" class="form-control" [(ngModel)]="cuadroApellido">
+        </div>    
+        <div class="form-group col-md-3">
+            <label for="Cargo">Cargo:</label>
+            <input type="text" name="Cargo" id="Cargo" placeholder="Cargo" class="form-control" [(ngModel)]="cuadroCargo">
+        </div>    
+        <div class="form-group col-md-3">
+            <label for="Salario">Salario:</label>
+            <input type="text" name="Salario" id="Salario" placeholder="Salario" class="form-control" [(ngModel)]="cuadroSalario">
+        </div>  
+        <div class="col">
+            <button type="submit" class="btn btn-primary" (click)="agregarEmpleado()" style="margin-top: 10px">Agregar</button>
+        </div>  
+    </form>
+</div>
+<br><br><br>
 
-<h2 style="text-align: center;">{{titulo}}</h2>
-
-<form action="">
-    <input type="text" name="nombre" [(ngModel)]="nombre"><br/>
-    <input type="text" name="apellido" [(ngModel)]="apellido"><br/>
-    <input type="submit" value="Registrar" (click)="registrarUsuario()">
-</form>
-<br/>
-<p *ngIf="registrado">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div *ngFor="let empleado of empleados; let i=index">
+                {{i+1}}: {{empleado.nombre}} {{empleado.apellido}} {{empleado.cargo}} {{empleado.salario}}
+            </div>
+        </div>
+    </div>
+</div>

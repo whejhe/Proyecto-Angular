@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Empleado } from './empleado.module';
 
 @Component({
   selector: 'app-root',
@@ -6,17 +7,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Directivas';
-  titulo='Registro de Usuarios';
-  mensaje="fsewfefe";
-  registrado=false;
-  nombre="";
-  apellido="";
+  title = 'Practica Empleado';
+  titulo = 'Listado de Empleados';
 
-  registrarUsuario(){
-    this.registrado=true;
-    this.mensaje="Usuario Registrado";
+  empleados: Empleado[] = [
+    new Empleado('Juan', 'Perez', 'Desarrollador', 1200),
+    new Empleado('Ana', 'Perez', 'Presidente', 7500),
+    new Empleado('Laura', 'Perez', 'Directiva', 5500),
+    new Empleado('Maria', 'Perez', 'Administrativo', 1500)
+  ];
+
+  agregarEmpleado(){
+    let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+    this.empleados.push(miEmpleado);
   }
+
+  cuadroNombre:string="";
+  cuadroApellido:string="";
+  cuadroCargo:string="";
+  cuadroSalario:number=0;
+
+  
 }
 
 

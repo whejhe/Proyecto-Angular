@@ -32,14 +32,26 @@ export class AppComponent {
   titulo='Registro de Usuarios';
   mensaje="fsewfefe";
   registrado=false;
-  nombre="";
-  apellido="";
+  nombre:string="";
+  apellido:string="";
+  entradas:{titulo:string}[];
+
+  constructor(){
+    this.entradas=[
+      {titulo:"Python cada dia mas presente"},
+      {titulo:"JavaScript cada dia mas presente"},
+      {titulo:"Angular cada dia mas presente"},
+      {titulo:"Java presente desde hace más de 20 años"},
+      {titulo:"¿Donde quedo pascal?"},
+    ]
+  };
 
   registrarUsuario(){
     this.registrado=true;
     this.mensaje="Usuario Registrado";
   }
 }
+
 
 ----------------------------------------------------------
 app.component.html:
@@ -54,6 +66,13 @@ app.component.html:
     <input type="submit" value="Registrar" (click)="registrarUsuario()">
 </form>
 <br/>
-<p *ngIf="registrado">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+<p *ngIf="registrado; else sinRegistrar;">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+<ng-template #sinRegistrar>
+    <p>Nadie registrado</p>
+</ng-template>
 
+<br/>
+<ul>
+    <li *ngFor="let entrada of entradas; let i = index">Entrada {{i}} : {{entrada.titulo}}</li>
+</ul>
 -----------------------------------------------------------------------
