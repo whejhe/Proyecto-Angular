@@ -1,0 +1,59 @@
+Tipos:
+    Componentes:
+        Angular:
+            @Component
+            @Module
+        Personalizadas:
+            (Custom)
+    Estructura:
+        ngIf
+        ngFor
+        ngSwitch
+        ngPlural
+        ngTemplate
+        ngComponentOutlet
+    Atributos:
+        ngClass
+        ngStyle
+        ngModel
+----------------------------------------------------------
+app.module:
+
+imports: [
+    BrowserModule,
+    FormsModule
+  ],
+
+------------------------------------------------------------
+app.component.ts:
+
+export class AppComponent {
+  title = 'Directivas';
+  titulo='Registro de Usuarios';
+  mensaje="fsewfefe";
+  registrado=false;
+  nombre="";
+  apellido="";
+
+  registrarUsuario(){
+    this.registrado=true;
+    this.mensaje="Usuario Registrado";
+  }
+}
+
+----------------------------------------------------------
+app.component.html:
+
+<h1>{{title}}</h1>
+
+<h2 style="text-align: center;">{{titulo}}</h2>
+
+<form action="">
+    <input type="text" name="nombre" [(ngModel)]="nombre"><br/>
+    <input type="text" name="apellido" [(ngModel)]="apellido"><br/>
+    <input type="submit" value="Registrar" (click)="registrarUsuario()">
+</form>
+<br/>
+<p *ngIf="registrado">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+
+-----------------------------------------------------------------------

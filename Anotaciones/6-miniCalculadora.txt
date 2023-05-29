@@ -1,0 +1,40 @@
+app.module:
+import:[
+    FormsModule,
+]
+-----------------------------------------------
+app.ts:
+export class AppComponent{
+    title = 'Mini Calculadora';
+    numero1: number=0;
+    numero2: number=0;
+    resultado: number=0;
+}
+
+sumar():void{
+    this.resultado=this.numero1+this.numero2;
+}
+restar():void{
+    this.resultado=this.numero1-this.numero2;
+}
+------------------------------------------------
+app.html:
+
+<h1>{{title}}</h1>
+
+<form action="">
+    Numero 1: <input type="number" [(ngModel)]="numero1" name="numero1"><br/><br/>
+    Numero 2: <input type="number" [(ngModel)]="numero2" name="numero2"><br/><br/>
+    <input type="submit" value="+" (click)="sumar()"/>
+    <span>    </span>
+    <input type="submit" value="-" (click)="restar()"/>
+</form>
+
+<p>Resultado: {{resultado}}</p>
+-------------------------------------------------------
+angular.json:
+            "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
