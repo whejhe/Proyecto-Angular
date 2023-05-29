@@ -11,7 +11,23 @@ export class UsuarioComponent {
   private apellido='Fernandez';
   private edad=30;
   private email='carlos@gmail';
+  empresa="";
+  // cambiaEmpresa(event:Event){
+  //   this.empresa=(<HTMLInputElement>event.target).value;
+  // }
 
+  usuarioRegistrado=false;
+
+  getUsuarioRegistrado(){
+    this.usuarioRegistrado=true;
+  }
+
+setUsuarioRegistrado(){
+  alert("Usuario Registrado");
+}
+
+  llamarEmpresa(value:string){
+  }
   getNombre(){
     return this.nombre;
   }

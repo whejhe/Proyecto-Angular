@@ -1,0 +1,42 @@
+Binding = "union , Vinculo , puente"
+-----------------------------------------------------------------
+
+user.ts
+habilitarCuadro=true;
+
+user.html
+<input type="test" [disable]="habilitarCuadro"
+-----------------------------------------------------------------
+
+user.ts
+usuarioRegistrado=true;
+
+getUsuarioRegistrado(){
+    this.usuarioRegistrado=false;
+  }
+
+
+user.html
+Registrado: <input type="checkbox" id="registrado" [checked]="usuarioRegistrado"/>
+
+{{getUsuarioRegistrado()}}
+---------------------------------------------------------------------------------
+Event Binding
+
+-----------------------------------------------------------------------------------
+Binding bidireccional:
+- directivas ngModel
+- Banana in box [()]
+
+app.module:
+import: [
+  FromsModule
+]
+
+usuario.html:
+<input type="text" [(ngModel)]="empresa"
+
+usuario.ts
+empresa="";
+
+----------------------------------------------------------------------------------------

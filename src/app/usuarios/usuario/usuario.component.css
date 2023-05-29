@@ -1,6 +1,9 @@
 p{
     color: #242222;
     margin: 10px, 10px, 10px, 10px;
+    font-size: 14px;
+    font-family: monospace;
+    padding: 5px;
 }
 
 .container{
@@ -12,4 +15,5 @@ p{
     width: 30vw;
     margin: auto;
     background-color: rgb(245, 237, 237);
+    border: #242222 solid 1px;
 }
