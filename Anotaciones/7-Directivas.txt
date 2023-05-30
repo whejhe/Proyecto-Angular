@@ -76,3 +76,17 @@ app.component.html:
     <li *ngFor="let entrada of entradas; let i = index">Entrada {{i}} : {{entrada.titulo}}</li>
 </ul>
 -----------------------------------------------------------------------
+
+Ejemplo directiva ngStyle:(con operador ternario)
+<span [ngStyle="{color:cargo=='director' ? 'red':'black'}"]>{{cargo}}</span>
+--------------------------------------------------------------------------
+Ejemplo directiva ngClass:
+css:
+.paraDirectores{
+  color: red;
+  font-weight: bold;
+  text-decoration:underline;
+}
+html:
+<span [ngClass]="{paraDirectores:cargo=='director'}">{{cargo}}</span>
+-------------------------------------------------------------------------------

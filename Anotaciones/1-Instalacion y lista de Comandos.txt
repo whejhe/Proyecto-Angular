@@ -31,3 +31,11 @@ npm install boostrap --save
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
+
+------------------------------------------------------------------------
+ts.config (Para cambiar de modo estricto a normal):
+
+"compilerOptions": {
+    "strictPropertyInitialization": false,
+}
+--------------------------------------------------------------------------
