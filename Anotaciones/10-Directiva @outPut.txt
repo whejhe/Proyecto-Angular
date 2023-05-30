@@ -1,0 +1,104 @@
+hijo-empleado-Componen.ts:
+
+import { Component,Input, OnInit } from '@angular/core';
+import { Empleado } from '../empleado.module'
+
+@Component({
+  selector: 'app-hijo-empleado',
+  templateUrl: './hijo-empleado.component.html',
+  styleUrls: ['./hijo-empleado.component.css']
+})
+export class HijoEmpleadoComponent implements OnInit {
+[x: string]: any;
+
+  @Input() empleadoLista: Empleado;
+  @Input() indice:number;
+
+arrayCaracteristicas=[''];
+
+agregarC(newC: string){
+  this.arrayCaracteristicas.push(newC);
+}
+
+  constructor(){}
+  ngOnInit(): void {
+    
+  }
+
+}
+--------------------------------------------------------------------------------------
+hijo-empleado.component.html:
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div>
+                {{indice+1}}: {{empleadoLista.nombre}} {{empleadoLista.apellido}} {{empleadoLista.cargo}} {{empleadoLista.salario}}
+            </div>
+            <app-caracteristicas (cEmpleado)="agregarC($event)"></app-caracteristicas>
+            <ul>
+                <li *ngFor="let caracteristica of arrayCaracteristicas">{{caracteristica}}</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+----------------------------------------------------------------------------------------------
+app.component.ts:
+
+export class AppComponent {
+  title = 'Practica Empleado';
+  titulo = 'Listado de Empleados';
+
+  empleados: Empleado[] = [
+    new Empleado('Juan', 'Perez', 'Desarrollador', 1200),
+    new Empleado('Ana', 'Perez', 'Presidente', 7500),
+    new Empleado('Laura', 'Perez', 'Directiva', 5500),
+    new Empleado('Maria', 'Perez', 'Administrativo', 1500)
+  ];
+
+  agregarEmpleado(){
+    let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+    this.empleados.push(miEmpleado);
+  }
+
+
+  cuadroNombre:string="";
+  cuadroApellido:string="";
+  cuadroCargo:string="";
+  cuadroSalario:number=0;
+
+  
+}
+
+----------------------------------------------------------------------------------------------------
+caracteristicas.component.ts:
+
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-caracteristicas',
+  templateUrl: './caracteristicas.component.html',
+  styleUrls: ['./caracteristicas.component.css']
+})
+export class CaracteristicasComponent implements OnInit {
+
+  @Output() cEmpleado = new EventEmitter<string>();
+
+  constructor() { }
+
+  ngOnInit(): void {
+    
+  }
+
+  agregarC(value: string){
+    this.cEmpleado.emit(value);
+  }
+
+}
+--------------------------------------------------------------------------------------------
+caracteristicas.component.html:
+
+<label>Caracteristica:</label>
+<input type="text" #newC>
+<button (click)="agregarC(newC.value)" class="btn btn-primary">Agregar Caracteristica</button>
