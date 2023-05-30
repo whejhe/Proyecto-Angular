@@ -30,3 +30,11 @@ agregarEmpleado(){
     this.empleados.push(miEmpleado);
   }
 -----------------------------------------------------------------------------------
+caracteristicas.component.ts:
+
+ constructor(private miServicio:ServicioEmpleadosService) { }
+
+agregarC(value: string){
+    this.miServicio.muestraMensaje(value)
+    this.cEmpleado.emit(value);
+  }
